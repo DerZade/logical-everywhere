@@ -1,3 +1,16 @@
+import {
+    type PhysicalAxis,
+    axisStartEnd,
+    reverseAxis,
+    axisDimensionAndDirection
+} from './axis';
+import { type CSSDirection, toDirection } from './direction';
+import { type CSSWritingMode, toWritingMode } from './writing-mode';
+
+export * from './axis';
+export * from './direction';
+export * from './writing-mode';
+
 /** A logical direction */
 export type LogicalDirection = `${'inline' | 'block'}-${'start' | 'end'}`;
 
@@ -5,61 +18,11 @@ export type LogicalDirection = `${'inline' | 'block'}-${'start' | 'end'}`;
 export type PhysicalDirection = 'top' | 'bottom' | 'right' | 'left';
 
 /**
- * A physical axis. (`{from}-{to}`)
- */
-export type PhysicalAxis =
-    | 'left-right'
-    | 'top-bottom'
-    | 'right-left'
-    | 'bottom-top';
-
-/**
  * An object containing the physical axes corresponding to the logical axes
  */
 export interface Axes {
     block: PhysicalAxis;
     inline: PhysicalAxis;
-}
-
-/** CSS `writing-mode` property */
-type CSSWritingMode =
-    | 'horizontal-tb'
-    | 'vertical-rl'
-    | 'vertical-lr'
-    | 'sideways-rl'
-    | 'sideways-lr';
-
-/**
- * Convert a string to concrete union of possible writing modes.
- */
-export function toWritingMode(val: string): CSSWritingMode {
-    const writingMode = (
-        {
-            'horizontal-tb': 'horizontal-tb',
-            'vertical-rl': 'vertical-rl',
-            'vertical-lr': 'vertical-lr',
-            'sideways-rl': 'sideways-rl',
-            'sideways-lr': 'sideways-lr',
-            lr: 'horizontal-tb',
-            'lr-tb': 'horizontal-tb',
-            rl: 'horizontal-tb',
-            tb: 'vertical-lr',
-            'tb-lr': 'vertical-lr',
-            'tb-rl': 'vertical-rl'
-        } as const
-    )[val];
-
-    return writingMode ?? 'horizontal-tb';
-}
-
-/** CSS `direction` property */
-type CSSDirection = 'ltr' | 'rtl';
-
-/**
- * Convert a string to concrete union of possible directions.
- */
-export function toDirection(val: string): CSSDirection {
-    return val === 'rtl' ? 'rtl' : 'ltr';
 }
 
 /** Object mapping WritingMode and Direction to axes */
@@ -99,60 +62,6 @@ export function getElementAxes(el: HTMLElement): Axes {
     const direction = toDirection(directionStr);
 
     return AXES_MAP[writingMode][direction];
-}
-
-/**
- * Get dimension and direction of a physical axis.
- * @param axis Axis
- * @returns An object, containing the dimension (`"x"` or `"y"`) and a multiplier to adjust for the direction.
- */
-export function axisDimensionAndDirection(axis: PhysicalAxis): {
-    dimension: 'x' | 'y';
-    multiplier: -1 | 1;
-} {
-    return (
-        {
-            'left-right': { dimension: 'x', multiplier: 1 },
-            'top-bottom': { dimension: 'y', multiplier: 1 },
-            'right-left': { dimension: 'x', multiplier: -1 },
-            'bottom-top': { dimension: 'y', multiplier: -1 }
-        } as const
-    )[axis];
-}
-
-/**
- * Get from- and to-direction of a physical axis
- * @param axis Axis
- * @returns An object, containing the `start`- and `end`-direction of the axis.
- */
-export function axisStartEnd(axis: PhysicalAxis): {
-    start: PhysicalDirection;
-    end: PhysicalDirection;
-} {
-    return (
-        {
-            'bottom-top': { start: 'bottom', end: 'top' },
-            'top-bottom': { start: 'top', end: 'bottom' },
-            'left-right': { start: 'left', end: 'right' },
-            'right-left': { start: 'right', end: 'left' }
-        } as const
-    )[axis];
-}
-
-/**
- * Reverse a physical axis
- * @param axis Axis to reverse
- * @returns Reversed axis
- */
-export function reverseAxis(axis: PhysicalAxis): PhysicalAxis {
-    return (
-        {
-            'bottom-top': 'top-bottom',
-            'top-bottom': 'bottom-top',
-            'left-right': 'right-left',
-            'right-left': 'left-right'
-        } as const
-    )[axis];
 }
 
 /**
