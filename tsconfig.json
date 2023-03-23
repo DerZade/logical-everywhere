@@ -1,7 +1,9 @@
 {
     "compilerOptions": {
-        "strictNullChecks": true,
-        "noImplicitAny": true,
+        "strict": true,
+        "noUncheckedIndexedAccess": true,
+        "noPropertyAccessFromIndexSignature": true,
+        "noFallthroughCasesInSwitch": true,
         "noImplicitReturns": true
     },
     "include": ["src"],
