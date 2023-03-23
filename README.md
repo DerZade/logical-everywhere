@@ -71,12 +71,12 @@ const { dimension, multiplier } = axisDimensionAndDirection(inline);
 const transform = `translate${dimension.toUpperCase()}(${3 * multiplier})`;
 ```
 
-### `axisToStartEnd`
+### `axisStartEnd`
 
 Get from- and to-direction of a physical axis.
 
 ```ts
-const { start, end } = axisToStartEnd('top-bottom');
+const { start, end } = axisStartEnd('top-bottom');
 console.log(start); // prints "top"
 console.log(end); // prints "bottom"
 ```

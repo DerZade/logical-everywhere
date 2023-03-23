@@ -125,7 +125,7 @@ export function axisDimensionAndDirection(axis: PhysicalAxis): {
  * @param axis Axis
  * @returns An object, containing the `start`- and `end`-direction of the axis.
  */
-export function axisToStartEnd(axis: PhysicalAxis): {
+export function axisStartEnd(axis: PhysicalAxis): {
     start: PhysicalDirection;
     end: PhysicalDirection;
 } {
@@ -170,16 +170,16 @@ export function getPhysicalDirection(
 
     switch (logicalDirection) {
         case 'inline-start':
-            return axisToStartEnd(inline).start;
+            return axisStartEnd(inline).start;
 
         case 'inline-end':
-            return axisToStartEnd(inline).end;
+            return axisStartEnd(inline).end;
 
         case 'block-start':
-            return axisToStartEnd(block).start;
+            return axisStartEnd(block).start;
 
         case 'block-end':
-            return axisToStartEnd(block).end;
+            return axisStartEnd(block).end;
     }
 }
 
