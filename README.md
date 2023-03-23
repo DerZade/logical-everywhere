@@ -1,6 +1,6 @@
 # Logical Properties EVERYWHERE
 
-_Collection of utilities to work around features that are not compatible with logical properties (such as [`translateX`](https://developer.mozilla.org/docs/Web/CSS/transform-function/translateX), [`translateY`](https://developer.mozilla.org/docs/Web/CSS/transform-function/translateY) or [`getBoundingClientRect`](https://developer.mozilla.org/docs/Web/API/Element/getBoundingClientRect))._
+_Collection of utilities to work around features that are not fully compatible with logical properties (such as [`translateX`](https://developer.mozilla.org/docs/Web/CSS/transform-function/translateX), [`translateY`](https://developer.mozilla.org/docs/Web/CSS/transform-function/translateY) or [`getBoundingClientRect`](https://developer.mozilla.org/docs/Web/API/Element/getBoundingClientRect))._
 
 ## Motivation
 

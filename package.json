@@ -1,7 +1,7 @@
 {
     "name": "logical-properties-everywhere",
     "version": "1.0.0",
-    "description": "Collection of utilities to work around features that are not compatible with logical properties (such as translateX, translateY or getBoundingClientRect).",
+    "description": "Collection of utilities to work around features that are not fully compatible with logical properties (such as translateX, translateY or getBoundingClientRect).",
     "main": "./dist/index.js",
     "types": "./dist/index.d.ts",
     "typings": "./dist/index.d.ts",
@@ -33,7 +33,8 @@
         "inline",
         "block",
         "ltr",
-        "rtl"
+        "rtl",
+        "writing-mode"
     ],
     "author": "Jonas Schade <derzade@gmail.com>",
     "license": "MIT",
