@@ -1,9 +1,4 @@
-import {
-    type PhysicalAxis,
-    axisStartEnd,
-    reverseAxis,
-    axisDimensionAndDirection
-} from './axis';
+import { type PhysicalAxis, axisStartEnd, reverseAxis } from './axis';
 import { type CSSDirection, toDirection } from './direction';
 import { type CSSWritingMode, toWritingMode } from './writing-mode';
 
