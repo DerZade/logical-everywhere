@@ -1,3 +1,5 @@
+import type { PhysicalDirection } from './index';
+
 /**
  * A physical axis. (`{from}-{to}`)
  */
