@@ -1,7 +1,7 @@
 import { describe, expect, it } from 'vitest';
 import { toDirection } from '../src';
 
-describe('toWritingMode', () => {
+describe('toDirection', () => {
     it('should return ltr for invalid values', () => {
         expect(toDirection('blub')).toBe('ltr');
     });
