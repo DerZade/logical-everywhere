@@ -68,12 +68,14 @@ const { inline } = getElementAxes(myElement);
 
 const { dimension, multiplier } = axisDimensionAndDirection(inline);
 
-const transform = `translate${dimension.toUpperCase()}(${3 * multiplier})`;
+// Translate 3rem in inline-end direction.
+const transform = `translate${dimension.toUpperCase()}(${3 * multiplier}rem)`;
+// use -3 instead of 3 to translate to the inline-start direction
 ```
 
 ### `axisStartEnd`
 
-Get from- and to-direction of a physical axis.
+Get start- and end-direction of a physical axis.
 
 ```ts
 const { start, end } = axisStartEnd('top-bottom');

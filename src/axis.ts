@@ -10,7 +10,7 @@ export type PhysicalAxis =
     | 'bottom-top';
 
 /**
- * Get from- and to-direction of a physical axis
+ * Get start- and end-direction of a physical axis
  * @param axis Axis
  * @returns An object, containing the `start`- and `end`-direction of the axis.
  */
