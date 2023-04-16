@@ -51,3 +51,21 @@ export function toFlexWrap(val: string): CSSFlexWrap {
 
     return 'nowrap';
 }
+
+/** CSS `flex-direction` property */
+export type CSSFlexDirection =
+    | 'row'
+    | 'row-reverse'
+    | 'column'
+    | 'column-reverse';
+
+/**
+ * Convert a string to concrete union of possible values of `flex-direction`.
+ */
+export function toFlexDirection(val: string): CSSFlexDirection {
+    if (val === 'row-reverse') return 'row-reverse';
+    if (val === 'column') return 'column';
+    if (val === 'column-reverse') return 'column-reverse';
+
+    return 'row';
+}
