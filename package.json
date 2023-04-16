@@ -1,21 +1,21 @@
 {
-    "name": "logical-properties-everywhere",
+    "name": "logical-everywhere",
     "version": "1.0.0",
-    "description": "Collection of utilities to work around features that are not fully compatible with logical properties (such as translateX, translateY or getBoundingClientRect).",
+    "description": "Collection of utilities to work around features that are not fully compatible with logical properties and values (such as translateX, translateY or getBoundingClientRect).",
     "main": "./dist/index.js",
     "types": "./dist/index.d.ts",
     "typings": "./dist/index.d.ts",
     "module": "./dist/index.mjs",
-    "homepage": "https://github.com/DerZade/logical-properties-everywhere#readme",
+    "homepage": "https://github.com/DerZade/logical-everywhere#readme",
     "repository": {
         "type": "git",
-        "url": "https://github.com/DerZade/logical-properties-everywhere.git"
+        "url": "https://github.com/DerZade/logical-everywhere.git"
     },
     "files": [
         "dist"
     ],
     "bugs": {
-        "url": "https://github.com/DerZade/logical-properties-everywhere/issues",
+        "url": "https://github.com/DerZade/logical-everywhere/issues",
         "email": "derzade@gmail.com"
     },
     "scripts": {

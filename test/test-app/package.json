@@ -10,6 +10,6 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "logical-properties-everywhere": "file:../.."
+    "logical-everywhere": "file:../.."
   }
 }
