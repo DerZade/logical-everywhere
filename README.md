@@ -28,20 +28,20 @@ const physicalDirection = getPhysicalDirection(myElement, 'inline-start');
 console.log(physicalDirection); // prints "left"
 ```
 
-### `getPhysicalFlexDirection`
+### `getPhysicalFlexAxes`
 
-Get physical axis of the `flex-direction` CSS property.
+Get flexbox's [main- and cross-axis](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Flexible_Box_Layout/Basic_Concepts_of_Flexbox#the_two_axes_of_flexbox) as physical axes.
 
 ```ts
 const myElement = document.getElementById('my-element');
 
 myElement.style.flexDirection = 'row-reverse';
-const axisRR = getPhysicalFlexDirection(myElement);
-console.log(axisRR); // prints "right-left"
+const axesRR = getPhysicalFlexAxes(myElement);
+console.log(axesRR.main); // prints "right-left"
 
 myElement.style.flexDirection = 'column-reverse';
-const axisCR = getPhysicalFlexDirection(myElement);
-console.log(axisCR); // prints "bottom-top"
+const axesCR = getPhysicalFlexAxes(myElement);
+console.log(axesCR.main); // prints "bottom-top"
 ```
 
 ### `getElementAxes`

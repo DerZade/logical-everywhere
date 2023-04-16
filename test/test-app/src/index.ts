@@ -2,7 +2,7 @@
 import {
     getElementAxes,
     getPhysicalDirection,
-    getPhysicalFlexDirection
+    getPhysicalFlexAxes
 } from 'logical-properties-everywhere';
 
 // @ts-ignore
@@ -10,4 +10,4 @@ window.getElementAxes = getElementAxes;
 // @ts-ignore
 window.getPhysicalDirection = getPhysicalDirection;
 // @ts-ignore
-window.getPhysicalFlexDirection = getPhysicalFlexDirection;
+window.getPhysicalFlexAxes = getPhysicalFlexAxes;

@@ -3,7 +3,9 @@ import {
     type CSSWritingMode,
     toWritingMode,
     type CSSDirection,
-    toDirection
+    toDirection,
+    toFlexWrap,
+    toFlexDirection
 } from './css';
 
 export * from './axis';
@@ -91,23 +93,45 @@ export function getPhysicalDirection(
 }
 
 /**
- * Get physical axis of the `flex-direction` CSS property.
+ * Get flexbox's main- and cross-axis as physical axes.
  *
  * @param el HTML Element
  */
-export function getPhysicalFlexDirection(el: HTMLElement): PhysicalAxis {
+export function getPhysicalFlexAxes(el: HTMLElement): {
+    main: PhysicalAxis;
+    cross: PhysicalAxis;
+} {
     const { inline, block } = getElementAxes(el);
 
-    const { flexDirection } = getComputedStyle(el);
+    const { flexDirection: flexDirectionStr, flexWrap: flexWrapStr } =
+        getComputedStyle(el);
+
+    const flexDirection = toFlexDirection(flexDirectionStr);
+
+    let main: PhysicalAxis;
+    let cross: PhysicalAxis;
 
     switch (flexDirection) {
+        case 'row':
+            main = inline;
+            cross = block;
+            break;
         case 'row-reverse':
-            return reverseAxis(inline);
+            main = reverseAxis(inline);
+            cross = block;
+            break;
         case 'column':
-            return block;
+            main = block;
+            cross = inline;
+            break;
         case 'column-reverse':
-            return reverseAxis(block);
-        default:
-            return inline;
+            main = reverseAxis(block);
+            cross = inline;
+            break;
     }
+
+    const flexWrap = toFlexWrap(flexWrapStr);
+    if (flexWrap === 'wrap-reverse') cross = reverseAxis(cross);
+
+    return { main, cross };
 }
