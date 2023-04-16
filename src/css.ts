@@ -38,3 +38,16 @@ export function toWritingMode(val: string): CSSWritingMode {
 
     return writingMode ?? 'horizontal-tb';
 }
+
+/** CSS `flex-wrap` property */
+export type CSSFlexWrap = 'nowrap' | 'wrap' | 'wrap-reverse';
+
+/**
+ * Convert a string to concrete union of possible values of `flex-wrap`.
+ */
+export function toFlexWrap(val: string): CSSFlexWrap {
+    if (val === 'wrap') return 'wrap';
+    if (val === 'wrap-reverse') return 'wrap-reverse';
+
+    return 'nowrap';
+}
