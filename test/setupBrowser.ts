@@ -8,6 +8,7 @@ export function setupBrowser() {
     let browser: Browser;
     let page: Page;
     let server: PreviewServer;
+    const port = 30000 + Math.floor(Math.random() * 1000);
 
     beforeAll(async () => {
         browser = await puppeteer.launch();
@@ -17,14 +18,14 @@ export function setupBrowser() {
             root: './test/test-app'
         });
         server = await preview({
-            preview: { port: 3000 },
+            preview: { port },
             root: './test/test-app'
         });
-        await page.goto('http://localhost:3000');
+        await page.goto(`http://localhost:${port}`);
     });
 
     beforeEach(async () => {
-        await page.goto('http://localhost:3000');
+        await page.goto(`http://localhost:${port}`);
     });
 
     afterAll(async () => {
