@@ -1,17 +1,17 @@
-# Logical Properties EVERYWHERE
+# Logical Properties and Values EVERYWHERE
 
-_Collection of utilities to work around features that are not fully compatible with logical properties (such as [`translateX`](https://developer.mozilla.org/docs/Web/CSS/transform-function/translateX), [`translateY`](https://developer.mozilla.org/docs/Web/CSS/transform-function/translateY) or [`getBoundingClientRect`](https://developer.mozilla.org/docs/Web/API/Element/getBoundingClientRect))._
+_Collection of utilities to work around features that are not fully compatible with logical properties and values (such as [`translateX`](https://developer.mozilla.org/docs/Web/CSS/transform-function/translateX), [`translateY`](https://developer.mozilla.org/docs/Web/CSS/transform-function/translateY) or [`getBoundingClientRect`](https://developer.mozilla.org/docs/Web/API/Element/getBoundingClientRect))._
 
 ## Motivation
 
-When positioning elements with JS, it is difficult to work with logical properties in mind. For example, if I want to display a tooltip in the `block-start `direction of an element (usually physically above), I first need to know where the inline and block axes are located in order to then position the tooltip in the correct physical direction (`top`, `left`, `bottom` or `right`):
+When positioning elements with JS, it is difficult to work with logical properties and values in mind. For example, if I want to display a tooltip in the `block-start `direction of an element (usually physically above), I first need to know where the inline and block axes are located in order to then position the tooltip in the correct physical direction (`top`, `left`, `bottom` or `right`):
 
 This package aims to simplifies this process.
 
 ## Installation
 
 ```
-npm i --save logical-properties-everywhere
+npm i --save logical-everywhere
 ```
 
 ## Utilities

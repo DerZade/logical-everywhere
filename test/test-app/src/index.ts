@@ -3,7 +3,7 @@ import {
     getElementAxes,
     getPhysicalDirection,
     getPhysicalFlexAxes
-} from 'logical-properties-everywhere';
+} from 'logical-everywhere';
 
 // @ts-ignore
 window.getElementAxes = getElementAxes;
