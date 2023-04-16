@@ -1,10 +1,13 @@
 import { type PhysicalAxis, axisStartEnd, reverseAxis } from './axis';
-import { type CSSDirection, toDirection } from './direction';
-import { type CSSWritingMode, toWritingMode } from './writing-mode';
+import {
+    type CSSWritingMode,
+    toWritingMode,
+    type CSSDirection,
+    toDirection
+} from './css';
 
 export * from './axis';
-export * from './direction';
-export * from './writing-mode';
+export * from './css';
 
 /** A logical direction */
 export type LogicalDirection = `${'inline' | 'block'}-${'start' | 'end'}`;
