@@ -23,7 +23,8 @@
         "lint": "eslint --ext .js,.ts ./src",
         "fmt": "prettier --write .",
         "test": "npm run build && vitest run",
-        "coverage": "vitest run --coverage"
+        "coverage": "vitest run --coverage",
+        "prepublishOnly": "npm run build"
     },
     "keywords": [
         "utilities",
