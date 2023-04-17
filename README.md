@@ -1,4 +1,4 @@
-# Logical Properties and Values EVERYWHERE
+# Logical Properties and Values EVERYWHERE [![NPM](https://img.shields.io/npm/v/logical-everywhere?style=flat-square)](https://npmjs.com/package/logical-everywhere)
 
 _Collection of utilities to work around features that are not fully compatible with logical properties and values (such as [`translateX`](https://developer.mozilla.org/docs/Web/CSS/transform-function/translateX), [`translateY`](https://developer.mozilla.org/docs/Web/CSS/transform-function/translateY) or [`getBoundingClientRect`](https://developer.mozilla.org/docs/Web/API/Element/getBoundingClientRect))._
 
