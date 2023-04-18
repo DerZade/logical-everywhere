@@ -1,6 +1,6 @@
 {
     "name": "logical-everywhere",
-    "version": "1.0.0",
+    "version": "1.0.1",
     "description": "Collection of utilities to work around features that are not fully compatible with logical properties and values (such as translateX, translateY or getBoundingClientRect).",
     "main": "./dist/index.js",
     "types": "./dist/index.d.ts",
