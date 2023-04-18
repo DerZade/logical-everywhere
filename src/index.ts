@@ -93,14 +93,19 @@ export function getPhysicalDirection(
 }
 
 /**
+ * An object containing the physical axes corresponding to the flex-axes of an element
+ */
+export interface FlexAxes {
+    main: PhysicalAxis;
+    cross: PhysicalAxis;
+}
+
+/**
  * Get flexbox's main- and cross-axis as physical axes.
  *
  * @param el HTML Element
  */
-export function getPhysicalFlexAxes(el: HTMLElement): {
-    main: PhysicalAxis;
-    cross: PhysicalAxis;
-} {
+export function getPhysicalFlexAxes(el: HTMLElement): FlexAxes {
     const { inline, block } = getElementAxes(el);
 
     const { flexDirection: flexDirectionStr, flexWrap: flexWrapStr } =
