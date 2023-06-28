@@ -54,7 +54,7 @@ export const AXES_MAP = {
  * @param el HTML Element
  * @returns An object, containing `inline`- and `block`-axis
  */
-export function getElementAxes(el: HTMLElement): Axes {
+export function getElementAxes(el: Element): Axes {
     const { writingMode: writingModeStr, direction: directionStr } =
         getComputedStyle(el);
 
@@ -72,7 +72,7 @@ export function getElementAxes(el: HTMLElement): Axes {
  * @returns Physical direction representing the logical direction
  */
 export function getPhysicalDirection(
-    el: HTMLElement,
+    el: Element,
     logicalDirection: LogicalDirection
 ): PhysicalDirection {
     const { inline, block } = getElementAxes(el);
@@ -105,7 +105,7 @@ export interface FlexAxes {
  *
  * @param el HTML Element
  */
-export function getPhysicalFlexAxes(el: HTMLElement): FlexAxes {
+export function getPhysicalFlexAxes(el: Element): FlexAxes {
     const { inline, block } = getElementAxes(el);
 
     const { flexDirection: flexDirectionStr, flexWrap: flexWrapStr } =
