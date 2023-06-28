@@ -25,7 +25,7 @@ const myElement = document.getElementById('my-element');
 
 const physicalDirection = getPhysicalDirection(myElement, 'inline-start');
 
-console.log(physicalDirection); // prints "left"
+console.log(physicalDirection); // prints "left" (in normal conditions)
 ```
 
 ### `getPhysicalFlexAxes`
@@ -37,11 +37,11 @@ const myElement = document.getElementById('my-element');
 
 myElement.style.flexDirection = 'row-reverse';
 const axesRR = getPhysicalFlexAxes(myElement);
-console.log(axesRR.main); // prints "right-left"
+console.log(axesRR.main); // prints "right-left" (in normal conditions)
 
 myElement.style.flexDirection = 'column-reverse';
 const axesCR = getPhysicalFlexAxes(myElement);
-console.log(axesCR.main); // prints "bottom-top"
+console.log(axesCR.main); // prints "bottom-top" (in normal conditions)
 ```
 
 ### `getElementAxes`
@@ -49,10 +49,12 @@ console.log(axesCR.main); // prints "bottom-top"
 Get inline- and block-axis of a HTML element.
 
 ```ts
+const myElement = document.getElementById('my-element');
+
 const { block, inline } = getElementAxes(myElement);
 
-console.log(inline); // prints "left-right"
-console.log(block); // prints "top-bottom"
+console.log(inline); // prints "left-right" (in normal conditions)
+console.log(block); // prints "top-bottom" (in normal conditions)
 ```
 
 ### `axisDimensionAndDirection`
