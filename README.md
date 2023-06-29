@@ -16,6 +16,19 @@ npm i --save logical-everywhere
 
 ## Utilities
 
+### `getBoundingClientLogicalRect`
+
+Same as [`getBoundingClientRect`](https://developer.mozilla.org/en-US/docs/Web/API/Element/getBoundingClientRect), but returns a `LogicalDOMRect`, which includes logical properties (`inlineStart`, `inlineEnd`, `blockStart`, `blockEnd`, `inlineSize` and `blockSize`) in addition to the non-logical properties (`width`, `left` etc.).
+
+```ts
+const myElement = document.getElementById('my-element');
+
+const rect = getBoundingClientLogicalRect(myElement);
+
+console.log(rect.blockSize); // corresponds to rect.height (in normal conditions)
+console.log(rect.inlineStart); // corresponds to rect.left (in normal conditions)
+```
+
 ### `getPhysicalDirection`
 
 Get the physical direction that corresponds to the logical direction of a element.

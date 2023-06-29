@@ -7,7 +7,9 @@ import {
     toFlexWrap,
     toFlexDirection
 } from './css';
+import { LogicalDOMRect } from './domrect';
 
+export * from './domrect';
 export * from './axis';
 export * from './css';
 
@@ -139,4 +141,17 @@ export function getPhysicalFlexAxes(el: Element): FlexAxes {
     if (flexWrap === 'wrap-reverse') cross = reverseAxis(cross);
 
     return { main, cross };
+}
+
+/**
+ * Same as [`getBoundingClientRect`](https://developer.mozilla.org/en-US/docs/Web/API/Element/getBoundingClientRect),
+ * but returns a {@link LogicalDOMRect}.
+ *
+ * @param el HTML Element
+ */
+export function getBoundingClientLogicalRect(el: Element): LogicalDOMRect {
+    const rect = el.getBoundingClientRect();
+    const { inline, block } = getElementAxes(el);
+
+    return new LogicalDOMRect(rect, inline, block);
 }
