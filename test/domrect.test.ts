@@ -3,7 +3,7 @@ import { LogicalDOMRect } from '../src';
 
 describe('LogicalDOMRect', () => {
     it('should work with "left-right" / "top-bottom"', () => {
-        const rect = new DOMRect(0, 11, 22, 33);
+        const rect = new DOMRect(1, 2, 3, 5);
         const logicalRect = new LogicalDOMRect(
             rect,
             'left-right',
@@ -19,7 +19,7 @@ describe('LogicalDOMRect', () => {
     });
 
     it('should work with "bottom-top" / "right-left"', () => {
-        const rect = new DOMRect(0, 11, 22, 33);
+        const rect = new DOMRect(1, 2, 3, 5);
         const logicalRect = new LogicalDOMRect(
             rect,
             'bottom-top',
