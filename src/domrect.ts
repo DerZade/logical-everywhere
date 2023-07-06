@@ -1,6 +1,6 @@
 import {
-    PhysicalAxis,
-    PhysicalDirection,
+    type PhysicalAxis,
+    type PhysicalDirection,
     axisDimensionAndDirection,
     axisStartEnd
 } from './index';
@@ -42,11 +42,11 @@ export class LogicalDOMRect extends DOMRect {
 
         this.inlineProperty =
             DIMENSION_TO_PROPERTY[
-                axisDimensionAndDirection(inlineAxis).dimension
+            axisDimensionAndDirection(inlineAxis).dimension
             ];
         this.blockProperty =
             DIMENSION_TO_PROPERTY[
-                axisDimensionAndDirection(blockAxis).dimension
+            axisDimensionAndDirection(blockAxis).dimension
             ];
     }
 
