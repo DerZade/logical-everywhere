@@ -7,6 +7,7 @@ describe('getPhysicalDirection', () => {
     it('should return the correct directions on LTR pages', async () => {
         const page = getPage();
 
+        // see https://drafts.csswg.org/css-writing-modes/#logical-to-physical
         const CASES = [
             {
                 id: 'my-elem-h-tb',
@@ -19,7 +20,7 @@ describe('getPhysicalDirection', () => {
             { id: 'my-elem-v-lr', expected: ['top', 'bottom', 'left', 'right'] }
             // TODO: uncomment once chrome supports writing-mode sideways-rl / sideways-lr
             // { id: 'my-elem-s-rl', expected: ['top', 'bottom', 'right', 'left'] },
-            // { id: 'my-elem-s-lr', expected: ['top', 'bottom', 'left', 'right'] }
+            // { id: 'my-elem-s-lr', expected: ['bottom', 'top', 'left', 'right'] }
         ];
 
         const promises = CASES.map(({ id, expected }) =>
@@ -55,6 +56,7 @@ describe('getPhysicalDirection', () => {
             document.dir = 'rtl';
         });
 
+        // see https://drafts.csswg.org/css-writing-modes/#logical-to-physical
         const CASES = [
             {
                 id: 'my-elem-h-tb',
@@ -67,7 +69,7 @@ describe('getPhysicalDirection', () => {
             { id: 'my-elem-v-lr', expected: ['bottom', 'top', 'left', 'right'] }
             // TODO: uncomment once chrome supports writing-mode sideways-rl / sideways-lr
             // { id: 'my-elem-s-rl', expected: ['bottom', 'top', 'right', 'left'] },
-            // { id: 'my-elem-s-lr', expected: ['bottom', 'top', 'left', 'right'] }
+            // { id: 'my-elem-s-lr', expected: ['top', 'bottom', 'left', 'right'] }
         ];
 
         const promises = CASES.map(({ id, expected }) =>
