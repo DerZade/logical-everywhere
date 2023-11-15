@@ -2,7 +2,7 @@ import { describe, expect, it } from 'vitest';
 import { toDirection } from '../src';
 
 describe('toDirection', () => {
-    it('should return ltr for invalid values', () => {
+    it('should return "ltr" for invalid values', () => {
         expect(toDirection('blub')).toBe('ltr');
     });
     it('should accept "rtl"', () => {

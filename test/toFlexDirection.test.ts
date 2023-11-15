@@ -2,7 +2,7 @@ import { describe, expect, it } from 'vitest';
 import { toFlexDirection } from '../src';
 
 describe('toFlexDirection', () => {
-    it('should return row for invalid values', () => {
+    it('should return "row" for invalid values', () => {
         expect(toFlexDirection('blub')).toBe('row');
     });
     it('should accept "row"', () => {

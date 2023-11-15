@@ -14,13 +14,13 @@ describe('toWritingMode', () => {
     it('should return "horizontal-tb" for "rl"', () => {
         expect(toWritingMode('rl')).toBe('horizontal-tb');
     });
-    it('should return "horizontal-tb" for "tb"', () => {
+    it('should return "vertical-lr" for "tb"', () => {
         expect(toWritingMode('tb')).toBe('vertical-lr');
     });
-    it('should return "horizontal-tb" for "tb-lr"', () => {
+    it('should return "vertical-lr" for "tb-lr"', () => {
         expect(toWritingMode('tb-lr')).toBe('vertical-lr');
     });
-    it('should return "horizontal-tb" for "tb-rl"', () => {
+    it('should return "vertical-rl" for "tb-rl"', () => {
         expect(toWritingMode('tb-rl')).toBe('vertical-rl');
     });
     it('should accept "horizontal-tb"', () => {

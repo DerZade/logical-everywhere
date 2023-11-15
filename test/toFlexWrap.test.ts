@@ -2,7 +2,7 @@ import { describe, expect, it } from 'vitest';
 import { toFlexWrap } from '../src';
 
 describe('toFlexWrap', () => {
-    it('should return nowrap for invalid values', () => {
+    it('should return "nowrap" for invalid values', () => {
         expect(toFlexWrap('blub')).toBe('nowrap');
     });
     it('should accept "nowrap"', () => {
