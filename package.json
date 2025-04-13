@@ -20,7 +20,7 @@
     },
     "scripts": {
         "build": "tsup --tsconfig ./tsconfig.json --dts --minify --format cjs,esm ./src/index.ts",
-        "lint": "eslint --ext .js,.ts ./src",
+        "lint": "eslint .",
         "fmt": "prettier --write .",
         "test": "vitest run --browser=chrome",
         "coverage": "vitest run --coverage --browser=chrome",
@@ -40,14 +40,17 @@
     "author": "Jonas Schade <derzade@gmail.com>",
     "license": "MIT",
     "devDependencies": {
-        "@typescript-eslint/eslint-plugin": "^5.55.0",
+        "@eslint/js": "^9.20.0",
         "@vitest/browser": "^3.0.5",
         "@vitest/coverage-istanbul": "^3.0.5",
-        "eslint-config-prettier": "^8.7.0",
-        "eslint-plugin-prettier": "^4.2.1",
-        "prettier": "^2.8.5",
+        "eslint": "^9.20.0",
+        "eslint-config-prettier": "^10.0.1",
+        "eslint-plugin-prettier": "^5.2.3",
+        "jiti": "^2.4.2",
+        "prettier": "^3.5.0",
         "tsup": "^8.3.6",
         "typescript": "^5.7.3",
+        "typescript-eslint": "^8.23.0",
         "vitest": "^3.0.5",
         "webdriverio": "^9.8.0"
     }
