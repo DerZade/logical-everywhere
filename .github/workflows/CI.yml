@@ -73,9 +73,5 @@ jobs:
             - name: Install dependencies
               run: npm ci
 
-            - name: Install dependencies in test app
-              working-directory: ./test/test-app
-              run: npm ci
-
             - name: Run tests
               run: npm run-script test
