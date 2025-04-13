@@ -19,72 +19,64 @@ describe('getPhysicalFlexAxes', () => {
                 wrap: {
                     'my-elem-h-tb': { main: 'left-right', cross: 'top-bottom' },
                     'my-elem-v-rl': { main: 'top-bottom', cross: 'right-left' },
-                    'my-elem-v-lr': { main: 'top-bottom', cross: 'left-right' }
-                    // TODO: uncomment once chrome supports writing-mode sideways-rl / sideways-lr
-                    // 'my-elem-s-rl': { main: 'top-bottom', cross: 'right-left' },
-                    // 'my-elem-s-lr': { main: 'bottom-top', cross: 'left-right' }
+                    'my-elem-v-lr': { main: 'top-bottom', cross: 'left-right' },
+                    'my-elem-s-rl': { main: 'top-bottom', cross: 'right-left' },
+                    'my-elem-s-lr': { main: 'bottom-top', cross: 'left-right' }
                 },
                 'wrap-reverse': {
                     'my-elem-h-tb': { main: 'left-right', cross: 'bottom-top' },
                     'my-elem-v-rl': { main: 'top-bottom', cross: 'left-right' },
-                    'my-elem-v-lr': { main: 'top-bottom', cross: 'right-left' }
-                    // TODO: uncomment once chrome supports writing-mode sideways-rl / sideways-lr
-                    // 'my-elem-s-rl': { main: 'top-bottom', cross: 'left-right' },
-                    // 'my-elem-s-lr': { main: 'bottom-top', cross: 'right-left' }
+                    'my-elem-v-lr': { main: 'top-bottom', cross: 'right-left' },
+                    'my-elem-s-rl': { main: 'top-bottom', cross: 'left-right' },
+                    'my-elem-s-lr': { main: 'bottom-top', cross: 'right-left' }
                 }
             },
             'row-reverse': {
                 wrap: {
                     'my-elem-h-tb': { main: 'right-left', cross: 'top-bottom' },
                     'my-elem-v-rl': { main: 'bottom-top', cross: 'right-left' },
-                    'my-elem-v-lr': { main: 'bottom-top', cross: 'left-right' }
-                    // TODO: uncomment once chrome supports writing-mode sideways-rl / sideways-lr
-                    // 'my-elem-s-rl': { main: 'bottom-top', cross: 'right-left' },
-                    // 'my-elem-s-lr': { main: 'top-bottom', cross: 'left-right' }
+                    'my-elem-v-lr': { main: 'bottom-top', cross: 'left-right' },
+                    'my-elem-s-rl': { main: 'bottom-top', cross: 'right-left' },
+                    'my-elem-s-lr': { main: 'top-bottom', cross: 'left-right' }
                 },
                 'wrap-reverse': {
                     'my-elem-h-tb': { main: 'right-left', cross: 'bottom-top' },
                     'my-elem-v-rl': { main: 'bottom-top', cross: 'left-right' },
-                    'my-elem-v-lr': { main: 'bottom-top', cross: 'right-left' }
-                    // TODO: uncomment once chrome supports writing-mode sideways-rl / sideways-lr
-                    // 'my-elem-s-rl': { main: 'bottom-top', cross: 'left-right' },
-                    // 'my-elem-s-lr': { main: 'top-bottom', cross: 'right-left' }
+                    'my-elem-v-lr': { main: 'bottom-top', cross: 'right-left' },
+                    'my-elem-s-rl': { main: 'bottom-top', cross: 'left-right' },
+                    'my-elem-s-lr': { main: 'top-bottom', cross: 'right-left' }
                 }
             },
             column: {
                 wrap: {
                     'my-elem-h-tb': { main: 'top-bottom', cross: 'left-right' },
                     'my-elem-v-rl': { main: 'right-left', cross: 'top-bottom' },
-                    'my-elem-v-lr': { main: 'left-right', cross: 'top-bottom' }
-                    // TODO: uncomment once chrome supports writing-mode sideways-rl / sideways-lr
-                    // 'my-elem-s-rl': { main: 'right-left', cross: 'top-bottom' },
-                    // 'my-elem-s-lr': { main: 'left-right', cross: 'bottom-top' }
+                    'my-elem-v-lr': { main: 'left-right', cross: 'top-bottom' },
+                    'my-elem-s-rl': { main: 'right-left', cross: 'top-bottom' },
+                    'my-elem-s-lr': { main: 'left-right', cross: 'bottom-top' }
                 },
                 'wrap-reverse': {
                     'my-elem-h-tb': { main: 'top-bottom', cross: 'right-left' },
                     'my-elem-v-rl': { main: 'right-left', cross: 'bottom-top' },
-                    'my-elem-v-lr': { main: 'left-right', cross: 'bottom-top' }
-                    // TODO: uncomment once chrome supports writing-mode sideways-rl / sideways-lr
-                    // 'my-elem-s-rl': { main: 'right-left', cross: 'bottom-top' },
-                    // 'my-elem-s-lr': { main: 'left-right', cross: 'top-bottom' }
+                    'my-elem-v-lr': { main: 'left-right', cross: 'bottom-top' },
+                    'my-elem-s-rl': { main: 'right-left', cross: 'bottom-top' },
+                    'my-elem-s-lr': { main: 'left-right', cross: 'top-bottom' }
                 }
             },
             'column-reverse': {
                 wrap: {
                     'my-elem-h-tb': { main: 'bottom-top', cross: 'left-right' },
                     'my-elem-v-rl': { main: 'left-right', cross: 'top-bottom' },
-                    'my-elem-v-lr': { main: 'right-left', cross: 'top-bottom' }
-                    // TODO: uncomment once chrome supports writing-mode sideways-rl / sideways-lr
-                    // 'my-elem-s-rl': { main: 'left-right', cross: 'top-bottom' },
-                    // 'my-elem-s-lr': { main: 'right-left', cross: 'bottom-top' }
+                    'my-elem-v-lr': { main: 'right-left', cross: 'top-bottom' },
+                    'my-elem-s-rl': { main: 'left-right', cross: 'top-bottom' },
+                    'my-elem-s-lr': { main: 'right-left', cross: 'bottom-top' }
                 },
                 'wrap-reverse': {
                     'my-elem-h-tb': { main: 'bottom-top', cross: 'right-left' },
                     'my-elem-v-rl': { main: 'left-right', cross: 'bottom-top' },
-                    'my-elem-v-lr': { main: 'right-left', cross: 'bottom-top' }
-                    // TODO: uncomment once chrome supports writing-mode sideways-rl / sideways-lr
-                    // 'my-elem-s-rl': { main: 'left-right', cross: 'bottom-top' },
-                    // 'my-elem-s-lr': { main: 'right-left', cross: 'top-bottom' }
+                    'my-elem-v-lr': { main: 'right-left', cross: 'bottom-top' },
+                    'my-elem-s-rl': { main: 'left-right', cross: 'bottom-top' },
+                    'my-elem-s-lr': { main: 'right-left', cross: 'top-bottom' }
                 }
             }
         },
@@ -93,72 +85,64 @@ describe('getPhysicalFlexAxes', () => {
                 wrap: {
                     'my-elem-h-tb': { main: 'right-left', cross: 'top-bottom' },
                     'my-elem-v-rl': { main: 'bottom-top', cross: 'right-left' },
-                    'my-elem-v-lr': { main: 'bottom-top', cross: 'left-right' }
-                    // TODO: uncomment once chrome supports writing-mode sideways-rl / sideways-lr
-                    // 'my-elem-s-rl': { main: 'bottom-top', cross: 'right-left' },
-                    // 'my-elem-s-lr': { main: 'top-bottom', cross: 'left-right' }
+                    'my-elem-v-lr': { main: 'bottom-top', cross: 'left-right' },
+                    'my-elem-s-rl': { main: 'bottom-top', cross: 'right-left' },
+                    'my-elem-s-lr': { main: 'top-bottom', cross: 'left-right' }
                 },
                 'wrap-reverse': {
                     'my-elem-h-tb': { main: 'right-left', cross: 'bottom-top' },
                     'my-elem-v-rl': { main: 'bottom-top', cross: 'left-right' },
-                    'my-elem-v-lr': { main: 'bottom-top', cross: 'right-left' }
-                    // TODO: uncomment once chrome supports writing-mode sideways-rl / sideways-lr
-                    // 'my-elem-s-rl': { main: 'bottom-top', cross: 'left-right' },
-                    // 'my-elem-s-lr': { main: 'top-bottom', cross: 'right-left' }
+                    'my-elem-v-lr': { main: 'bottom-top', cross: 'right-left' },
+                    'my-elem-s-rl': { main: 'bottom-top', cross: 'left-right' },
+                    'my-elem-s-lr': { main: 'top-bottom', cross: 'right-left' }
                 }
             },
             'row-reverse': {
                 wrap: {
                     'my-elem-h-tb': { main: 'left-right', cross: 'top-bottom' },
                     'my-elem-v-rl': { main: 'top-bottom', cross: 'right-left' },
-                    'my-elem-v-lr': { main: 'top-bottom', cross: 'left-right' }
-                    // TODO: uncomment once chrome supports writing-mode sideways-rl / sideways-lr
-                    // 'my-elem-s-rl': { main: 'top-bottom', cross: 'right-left' },
-                    // 'my-elem-s-lr': { main: 'bottom-top', cross: 'left-right' }
+                    'my-elem-v-lr': { main: 'top-bottom', cross: 'left-right' },
+                    'my-elem-s-rl': { main: 'top-bottom', cross: 'right-left' },
+                    'my-elem-s-lr': { main: 'bottom-top', cross: 'left-right' }
                 },
                 'wrap-reverse': {
                     'my-elem-h-tb': { main: 'left-right', cross: 'bottom-top' },
                     'my-elem-v-rl': { main: 'top-bottom', cross: 'left-right' },
-                    'my-elem-v-lr': { main: 'top-bottom', cross: 'right-left' }
-                    // TODO: uncomment once chrome supports writing-mode sideways-rl / sideways-lr
-                    // 'my-elem-s-rl': { main: 'top-bottom', cross: 'left-right' },
-                    // 'my-elem-s-lr': { main: 'bottom-top', cross: 'right-left' }
+                    'my-elem-v-lr': { main: 'top-bottom', cross: 'right-left' },
+                    'my-elem-s-rl': { main: 'top-bottom', cross: 'left-right' },
+                    'my-elem-s-lr': { main: 'bottom-top', cross: 'right-left' }
                 }
             },
             column: {
                 wrap: {
                     'my-elem-h-tb': { main: 'top-bottom', cross: 'right-left' },
                     'my-elem-v-rl': { main: 'right-left', cross: 'bottom-top' },
-                    'my-elem-v-lr': { main: 'left-right', cross: 'bottom-top' }
-                    // TODO: uncomment once chrome supports writing-mode sideways-rl / sideways-lr
-                    // 'my-elem-s-rl': { main: 'right-left', cross: 'bottom-top' },
-                    // 'my-elem-s-lr': { main: 'left-right', cross: 'top-bottom' }
+                    'my-elem-v-lr': { main: 'left-right', cross: 'bottom-top' },
+                    'my-elem-s-rl': { main: 'right-left', cross: 'bottom-top' },
+                    'my-elem-s-lr': { main: 'left-right', cross: 'top-bottom' }
                 },
                 'wrap-reverse': {
                     'my-elem-h-tb': { main: 'top-bottom', cross: 'left-right' },
                     'my-elem-v-rl': { main: 'right-left', cross: 'top-bottom' },
-                    'my-elem-v-lr': { main: 'left-right', cross: 'top-bottom' }
-                    // TODO: uncomment once chrome supports writing-mode sideways-rl / sideways-lr
-                    // 'my-elem-s-rl': { main: 'right-left', cross: 'top-bottom' },
-                    // 'my-elem-s-lr': { main: 'left-right', cross: 'bottom-top' }
+                    'my-elem-v-lr': { main: 'left-right', cross: 'top-bottom' },
+                    'my-elem-s-rl': { main: 'right-left', cross: 'top-bottom' },
+                    'my-elem-s-lr': { main: 'left-right', cross: 'bottom-top' }
                 }
             },
             'column-reverse': {
                 wrap: {
                     'my-elem-h-tb': { main: 'bottom-top', cross: 'right-left' },
                     'my-elem-v-rl': { main: 'left-right', cross: 'bottom-top' },
-                    'my-elem-v-lr': { main: 'right-left', cross: 'bottom-top' }
-                    // TODO: uncomment once chrome supports writing-mode sideways-rl / sideways-lr
-                    // 'my-elem-s-rl': { main: 'left-right', cross: 'bottom-top' },
-                    // 'my-elem-s-lr': { main: 'right-left', cross: 'top-bottom' }
+                    'my-elem-v-lr': { main: 'right-left', cross: 'bottom-top' },
+                    'my-elem-s-rl': { main: 'left-right', cross: 'bottom-top' },
+                    'my-elem-s-lr': { main: 'right-left', cross: 'top-bottom' }
                 },
                 'wrap-reverse': {
                     'my-elem-h-tb': { main: 'bottom-top', cross: 'left-right' },
                     'my-elem-v-rl': { main: 'left-right', cross: 'top-bottom' },
-                    'my-elem-v-lr': { main: 'right-left', cross: 'top-bottom' }
-                    // TODO: uncomment once chrome supports writing-mode sideways-rl / sideways-lr
-                    // 'my-elem-s-rl': { main: 'left-right', cross: 'top-bottom' },
-                    // 'my-elem-s-lr': { main: 'right-left', cross: 'bottom-top' }
+                    'my-elem-v-lr': { main: 'right-left', cross: 'top-bottom' },
+                    'my-elem-s-rl': { main: 'left-right', cross: 'top-bottom' },
+                    'my-elem-s-lr': { main: 'right-left', cross: 'bottom-top' }
                 }
             }
         }

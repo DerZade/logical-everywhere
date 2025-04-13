@@ -11,10 +11,9 @@ describe('getElementAxes', () => {
         const CASES = [
             { id: 'my-elem-h-tb', block: 'top-bottom', inline: 'left-right' },
             { id: 'my-elem-v-rl', block: 'right-left', inline: 'top-bottom' },
-            { id: 'my-elem-v-lr', block: 'left-right', inline: 'top-bottom' }
-            // TODO: uncomment once chrome supports writing-mode sideways-rl / sideways-lr
-            // { id: 'my-elem-s-rl', block: 'right-left', inline: 'top-bottom' },
-            // { id: 'my-elem-s-lr', block: 'left-right', inline: 'bottom-top' }
+            { id: 'my-elem-v-lr', block: 'left-right', inline: 'top-bottom' },
+            { id: 'my-elem-s-rl', block: 'right-left', inline: 'top-bottom' },
+            { id: 'my-elem-s-lr', block: 'left-right', inline: 'bottom-top' }
         ];
 
         const promises = CASES.map(({ id, ...expected }) =>
@@ -46,10 +45,9 @@ describe('getElementAxes', () => {
         const CASES = [
             { id: 'my-elem-h-tb', block: 'top-bottom', inline: 'right-left' },
             { id: 'my-elem-v-rl', block: 'right-left', inline: 'bottom-top' },
-            { id: 'my-elem-v-lr', block: 'left-right', inline: 'bottom-top' }
-            // TODO: uncomment once chrome supports writing-mode sideways-rl / sideways-lr
-            // { id: 'my-elem-s-rl', block: 'right-left', inline: 'bottom-top' },
-            // { id: 'my-elem-s-lr', block: 'left-right', inline: 'top-bottom' }
+            { id: 'my-elem-v-lr', block: 'left-right', inline: 'bottom-top' },
+            { id: 'my-elem-s-rl', block: 'right-left', inline: 'bottom-top' },
+            { id: 'my-elem-s-lr', block: 'left-right', inline: 'top-bottom' }
         ];
 
         const promises = CASES.map(({ id, ...expected }) =>
