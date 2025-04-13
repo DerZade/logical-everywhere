@@ -7,8 +7,8 @@ import { getBoundingClientLogicalRect } from '../src';
  * results in left, top, right, bottom, width, height
  *  all having distinct values.
  */
-const POS_STYLE = 'position: fixed; left: 1px; top: 2px; width: 3px; height: 5px';
-
+const POS_STYLE =
+    'position: fixed; left: 1px; top: 2px; width: 3px; height: 5px';
 
 describe('getBoundingClientLogicalRect', () => {
     it('should work for ltr / horizontal-tb', async () => {
