@@ -4,7 +4,11 @@
         "noUncheckedIndexedAccess": true,
         "noPropertyAccessFromIndexSignature": true,
         "noFallthroughCasesInSwitch": true,
-        "noImplicitReturns": true
+        "noImplicitReturns": true,
+        "types": [
+            "@vitest/browser/providers/playwright",
+            "@vitest/browser/matchers"
+        ]
     },
     "include": ["src"],
     "exclude": ["node_modules"]

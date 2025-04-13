@@ -1,9 +1,15 @@
 import { describe, expect, it } from 'vitest';
-import { setupBrowser } from './setupBrowser';
-import { CSSFlexDirection, CSSFlexWrap, PhysicalAxis } from '../src';
+import { CSSFlexDirection, CSSFlexWrap, getPhysicalFlexAxes, PhysicalAxis } from '../src';
 
 describe('getPhysicalFlexAxes', () => {
-    const getPage = setupBrowser();
+    document.body.innerHTML = `
+        <style> div { display: flex; }</style>
+        <div id="my-elem-h-tb" style="writing-mode: horizontal-tb"></div>
+        <div id="my-elem-v-rl" style="writing-mode: vertical-rl"></div>
+        <div id="my-elem-v-lr" style="writing-mode: vertical-lr"></div>
+        <div id="my-elem-s-rl" style="writing-mode: sideways-rl"></div>
+        <div id="my-elem-s-lr" style="writing-mode: sideways-lr"></div>
+    `;
 
     const CASES: {
         [htmlDir in 'ltr' | 'rtl']: {
@@ -159,46 +165,24 @@ describe('getPhysicalFlexAxes', () => {
                 const cases = CASES[htmlDir][flexDirection][flexWrap];
 
                 it(`should return the correct axes for ${htmlDir.toUpperCase()} pages with a "flex-direction" of "${flexDirection}" and a "flex-wrap" of "${flexWrap}"`, async () => {
-                    const page = getPage();
+                    document.dir = htmlDir;
 
-                    await page.evaluate((htmlDir) => {
-                        document.dir = htmlDir;
-                    }, htmlDir);
+                    for (const [id, expected] of Object.entries(cases)) {
+                        const element = document.getElementById(id);
 
-                    const promises = Object.entries(cases).map(
-                        ([id, expected]) =>
-                            page
-                                .evaluate(
-                                    (id, flexDirection, flexWrap) => {
-                                        const element =
-                                            document.getElementById(id);
+                        if (element === null) throw new Error("Couldn't get element");
 
-                                        if (element === null)
-                                            throw new Error(
-                                                "Couldn't get element"
-                                            );
+                        element.style.flexDirection =
+                            flexDirection;
+                        element.style.flexWrap = flexWrap;
 
-                                        element.style.flexDirection =
-                                            flexDirection;
-                                        element.style.flexWrap = flexWrap;
+                        const axes = getPhysicalFlexAxes(element);
 
-                                        // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-                                        // @ts-ignore
-                                        return getPhysicalFlexAxes(element);
-                                    },
-                                    id,
-                                    flexDirection,
-                                    flexWrap
-                                )
-                                .then((ret) =>
-                                    expect(
-                                        ret,
-                                        `wrong axes for id "${id}" (${htmlDir} / ${flexDirection} / ${flexWrap})`
-                                    ).toStrictEqual(expected)
-                                )
-                    );
-
-                    await Promise.all(promises);
+                        expect(
+                            axes,
+                            `wrong axes for id "${id}" (${htmlDir} / ${flexDirection} / ${flexWrap})`
+                        ).toStrictEqual(expected)
+                    }
                 });
             }
         }

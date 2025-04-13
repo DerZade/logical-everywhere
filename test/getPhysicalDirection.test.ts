@@ -1,12 +1,17 @@
 import { describe, expect, it } from 'vitest';
-import { setupBrowser } from './setupBrowser';
+import { getPhysicalDirection } from '../src';
 
 describe('getPhysicalDirection', () => {
-    const getPage = setupBrowser();
+    document.body.innerHTML = `
+        <style> div { display: flex; }</style>
+        <div id="my-elem-h-tb" style="writing-mode: horizontal-tb"></div>
+        <div id="my-elem-v-rl" style="writing-mode: vertical-rl"></div>
+        <div id="my-elem-v-lr" style="writing-mode: vertical-lr"></div>
+        <div id="my-elem-s-rl" style="writing-mode: sideways-rl"></div>
+        <div id="my-elem-s-lr" style="writing-mode: sideways-lr"></div>
+    `;
 
     it('should return the correct directions on LTR pages', async () => {
-        const page = getPage();
-
         // see https://drafts.csswg.org/css-writing-modes/#logical-to-physical
         const CASES = [
             {
@@ -22,38 +27,28 @@ describe('getPhysicalDirection', () => {
             { id: 'my-elem-s-lr', expected: ['bottom', 'top', 'left', 'right'] }
         ];
 
-        const promises = CASES.map(({ id, expected }) =>
-            page
-                .evaluate(
-                    (id) =>
-                        [
-                            'inline-start',
-                            'inline-end',
-                            'block-start',
-                            'block-end'
-                        ].map((d) =>
-                            // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-                            // @ts-ignore
-                            getPhysicalDirection(document.getElementById(id), d)
-                        ),
-                    id
-                )
-                .then((ret) =>
-                    expect(ret, `wrong direction for id "${id}"`).toStrictEqual(
-                        expected
-                    )
-                )
-        );
 
-        await Promise.all(promises);
+        for (const { id, expected } of CASES) {
+            const el = document.getElementById(id);
+            if (el === null) throw new Error('Failed to get element');
+
+            const directions = ([
+                'inline-start',
+                'inline-end',
+                'block-start',
+                'block-end'
+            ] as const).map((d) =>
+                getPhysicalDirection(el, d)
+            );
+
+            expect(directions, `wrong direction for id "${id}"`).toStrictEqual(
+                expected
+            )
+        }
     });
 
     it('should return the correct directions on RTL pages', async () => {
-        const page = getPage();
-
-        await page.evaluate(() => {
-            document.dir = 'rtl';
-        });
+        document.dir = 'rtl';
 
         // see https://drafts.csswg.org/css-writing-modes/#logical-to-physical
         const CASES = [
@@ -70,29 +65,22 @@ describe('getPhysicalDirection', () => {
             { id: 'my-elem-s-lr', expected: ['top', 'bottom', 'left', 'right'] }
         ];
 
-        const promises = CASES.map(({ id, expected }) =>
-            page
-                .evaluate(
-                    (id) =>
-                        [
-                            'inline-start',
-                            'inline-end',
-                            'block-start',
-                            'block-end'
-                        ].map((d) =>
-                            // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-                            // @ts-ignore
-                            getPhysicalDirection(document.getElementById(id), d)
-                        ),
-                    id
-                )
-                .then((ret) =>
-                    expect(ret, `wrong direction for id "${id}"`).toStrictEqual(
-                        expected
-                    )
-                )
-        );
+        for (const { id, expected } of CASES) {
+            const el = document.getElementById(id);
+            if (el === null) throw new Error('Failed to get element');
 
-        await Promise.all(promises);
+            const directions = ([
+                'inline-start',
+                'inline-end',
+                'block-start',
+                'block-end'
+            ] as const).map((d) =>
+                getPhysicalDirection(el, d)
+            );
+
+            expect(directions, `wrong direction for id "${id}"`).toStrictEqual(
+                expected
+            )
+        }
     });
 });

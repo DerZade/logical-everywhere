@@ -1,12 +1,17 @@
 import { describe, expect, it } from 'vitest';
-import { setupBrowser } from './setupBrowser';
+import { getElementAxes } from '../src';
 
 describe('getElementAxes', () => {
-    const getPage = setupBrowser();
+    document.body.innerHTML = `
+        <style> div { display: flex; }</style>
+        <div id="my-elem-h-tb" style="writing-mode: horizontal-tb"></div>
+        <div id="my-elem-v-rl" style="writing-mode: vertical-rl"></div>
+        <div id="my-elem-v-lr" style="writing-mode: vertical-lr"></div>
+        <div id="my-elem-s-rl" style="writing-mode: sideways-rl"></div>
+        <div id="my-elem-s-lr" style="writing-mode: sideways-lr"></div>
+    `;
 
     it('should return the correct axes on LTR pages', async () => {
-        const page = getPage();
-
         // see https://drafts.csswg.org/css-writing-modes/#logical-to-physical
         const CASES = [
             { id: 'my-elem-h-tb', block: 'top-bottom', inline: 'left-right' },
@@ -16,30 +21,16 @@ describe('getElementAxes', () => {
             { id: 'my-elem-s-lr', block: 'left-right', inline: 'bottom-top' }
         ];
 
-        const promises = CASES.map(({ id, ...expected }) =>
-            page
-                .evaluate(
-                    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-                    // @ts-ignore
-                    (id) => getElementAxes(document.getElementById(id)),
-                    id
-                )
-                .then((ret) =>
-                    expect(ret, `wrong axes for id "${id}"`).toStrictEqual(
-                        expected
-                    )
-                )
-        );
+        for (const { id, ...expected } of CASES) {
+            const el = document.getElementById(id);
+            if (el === null) throw new Error('Failed to get element');
 
-        await Promise.all(promises);
+            expect(getElementAxes(el), `wrong axes for id "${id}"`).toStrictEqual(expected)
+        }
     });
 
     it('should return the correct axes on RTL pages', async () => {
-        const page = getPage();
-
-        await page.evaluate(() => {
-            document.dir = 'rtl';
-        });
+        document.dir = 'rtl';
 
         // see https://drafts.csswg.org/css-writing-modes/#logical-to-physical
         const CASES = [
@@ -50,21 +41,11 @@ describe('getElementAxes', () => {
             { id: 'my-elem-s-lr', block: 'left-right', inline: 'top-bottom' }
         ];
 
-        const promises = CASES.map(({ id, ...expected }) =>
-            page
-                .evaluate(
-                    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-                    // @ts-ignore
-                    (id) => getElementAxes(document.getElementById(id)),
-                    id
-                )
-                .then((ret) =>
-                    expect(ret, `wrong axes for id "${id}"`).toStrictEqual(
-                        expected
-                    )
-                )
-        );
+        for (const { id, ...expected } of CASES) {
+            const el = document.getElementById(id);
+            if (el === null) throw new Error('Failed to get element');
 
-        await Promise.all(promises);
+            expect(getElementAxes(el), `wrong axes for id "${id}"`).toStrictEqual(expected)
+        }
     });
 });
