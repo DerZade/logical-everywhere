@@ -22,28 +22,33 @@ describe('getPhysicalDirection', () => {
                 id: 'my-elem-v-rl',
                 expected: ['top', 'bottom', 'right', 'left']
             },
-            { id: 'my-elem-v-lr', expected: ['top', 'bottom', 'left', 'right'] },
-            { id: 'my-elem-s-rl', expected: ['top', 'bottom', 'right', 'left'] },
+            {
+                id: 'my-elem-v-lr',
+                expected: ['top', 'bottom', 'left', 'right']
+            },
+            {
+                id: 'my-elem-s-rl',
+                expected: ['top', 'bottom', 'right', 'left']
+            },
             { id: 'my-elem-s-lr', expected: ['bottom', 'top', 'left', 'right'] }
         ];
-
 
         for (const { id, expected } of CASES) {
             const el = document.getElementById(id);
             if (el === null) throw new Error('Failed to get element');
 
-            const directions = ([
-                'inline-start',
-                'inline-end',
-                'block-start',
-                'block-end'
-            ] as const).map((d) =>
-                getPhysicalDirection(el, d)
-            );
+            const directions = (
+                [
+                    'inline-start',
+                    'inline-end',
+                    'block-start',
+                    'block-end'
+                ] as const
+            ).map((d) => getPhysicalDirection(el, d));
 
             expect(directions, `wrong direction for id "${id}"`).toStrictEqual(
                 expected
-            )
+            );
         }
     });
 
@@ -60,8 +65,14 @@ describe('getPhysicalDirection', () => {
                 id: 'my-elem-v-rl',
                 expected: ['bottom', 'top', 'right', 'left']
             },
-            { id: 'my-elem-v-lr', expected: ['bottom', 'top', 'left', 'right'] },
-            { id: 'my-elem-s-rl', expected: ['bottom', 'top', 'right', 'left'] },
+            {
+                id: 'my-elem-v-lr',
+                expected: ['bottom', 'top', 'left', 'right']
+            },
+            {
+                id: 'my-elem-s-rl',
+                expected: ['bottom', 'top', 'right', 'left']
+            },
             { id: 'my-elem-s-lr', expected: ['top', 'bottom', 'left', 'right'] }
         ];
 
@@ -69,18 +80,18 @@ describe('getPhysicalDirection', () => {
             const el = document.getElementById(id);
             if (el === null) throw new Error('Failed to get element');
 
-            const directions = ([
-                'inline-start',
-                'inline-end',
-                'block-start',
-                'block-end'
-            ] as const).map((d) =>
-                getPhysicalDirection(el, d)
-            );
+            const directions = (
+                [
+                    'inline-start',
+                    'inline-end',
+                    'block-start',
+                    'block-end'
+                ] as const
+            ).map((d) => getPhysicalDirection(el, d));
 
             expect(directions, `wrong direction for id "${id}"`).toStrictEqual(
                 expected
-            )
+            );
         }
     });
 });

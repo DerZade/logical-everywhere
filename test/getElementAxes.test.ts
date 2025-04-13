@@ -25,7 +25,10 @@ describe('getElementAxes', () => {
             const el = document.getElementById(id);
             if (el === null) throw new Error('Failed to get element');
 
-            expect(getElementAxes(el), `wrong axes for id "${id}"`).toStrictEqual(expected)
+            expect(
+                getElementAxes(el),
+                `wrong axes for id "${id}"`
+            ).toStrictEqual(expected);
         }
     });
 
@@ -45,7 +48,10 @@ describe('getElementAxes', () => {
             const el = document.getElementById(id);
             if (el === null) throw new Error('Failed to get element');
 
-            expect(getElementAxes(el), `wrong axes for id "${id}"`).toStrictEqual(expected)
+            expect(
+                getElementAxes(el),
+                `wrong axes for id "${id}"`
+            ).toStrictEqual(expected);
         }
     });
 });

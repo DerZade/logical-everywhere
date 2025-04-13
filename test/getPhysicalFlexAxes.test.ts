@@ -1,5 +1,10 @@
 import { describe, expect, it } from 'vitest';
-import { CSSFlexDirection, CSSFlexWrap, getPhysicalFlexAxes, PhysicalAxis } from '../src';
+import {
+    CSSFlexDirection,
+    CSSFlexWrap,
+    getPhysicalFlexAxes,
+    PhysicalAxis
+} from '../src';
 
 describe('getPhysicalFlexAxes', () => {
     document.body.innerHTML = `
@@ -170,10 +175,10 @@ describe('getPhysicalFlexAxes', () => {
                     for (const [id, expected] of Object.entries(cases)) {
                         const element = document.getElementById(id);
 
-                        if (element === null) throw new Error("Couldn't get element");
+                        if (element === null)
+                            throw new Error("Couldn't get element");
 
-                        element.style.flexDirection =
-                            flexDirection;
+                        element.style.flexDirection = flexDirection;
                         element.style.flexWrap = flexWrap;
 
                         const axes = getPhysicalFlexAxes(element);
@@ -181,7 +186,7 @@ describe('getPhysicalFlexAxes', () => {
                         expect(
                             axes,
                             `wrong axes for id "${id}" (${htmlDir} / ${flexDirection} / ${flexWrap})`
-                        ).toStrictEqual(expected)
+                        ).toStrictEqual(expected);
                     }
                 });
             }
